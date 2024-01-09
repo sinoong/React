@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap");
+
+/* index.html 최최상단 */
+body {
+  background-color: #f6f6f6;
+  /* 이 두줄은 속성을 가운데로  */
+  display: flex;
+  justify-content: center;
+  /* display: flex 일 때 세로축을 기준으로 가운데 두겠다 */
+  align-items: center;
+  font-family: "Nanum pen script";
+  /* 현재 웹 스크린의 실제 크기의 100%를 최소 높이로 갖겠다 */
+  min-height: 100vh;
+  margin: 0px;
+}
+
+/* min-width가 650px 이상으로 넓을 때  */
+@media (min-width: 650px) {
+  .App {
+    width: 640px;
+  }
+}
+
+/* 너비가 650px 이하일 때  */
+@media (max-width: 650px) {
+  .App {
+    /* 전체 크기의 90% */
+    width: 90vw;
+  }
+}
+
+/* 그림자 */
+#root {
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.App {
+  /* 기본 적으로 100%에 해당하는 높이를 차지하게 됨  */
+  min-height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* MyButton */
+.MyButton {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 18px;
+  /* 버튼 안에 글자가 길어서 두 줄이 되지 않도록 */
+  white-space: nowrap;
+  font-family: "Nanum pen script";
+}
+
+.MyButton_default {
+  background-color: #ececec;
+  color: black;
+}
+
+.MyButton_positive {
+  background-color: #64c964;
+  color: white;
+}
+
+.MyButton_negative {
+  background-color: #fd565f;
+  color: white;
+}
+
+/* HEADER */
+header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  /* display: flex 쓰면 기본적으로 세로로 나열되는게 가로로 나열 됨 */
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+header > div {
+  display: flex;
+}
+
+header .head_text {
+  width: 50%;
+  font-size: 25px;
+  /* 위에서 flex로 가로로 나열 했고, 가로 축에서의 중앙 정렬 */
+  justify-content: center;
+}
+
+header .head_btn_left {
+  width: 25%;
+}
+
+header .head_btn_right {
+  width: 25%;
+  justify-content: end;
+  /* 좌 25% 센터 50% 우 25 % 도합 100%로 이쁘게 나열  */
+}
+
+header button {
+  font-family: "Nanum Pen script";
+}
