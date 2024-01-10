@@ -4,7 +4,8 @@
   padding: 20px;
 
   font-family: "Nanum Pen Script", cursive;
-  font-family: "Yeon Sung", system-ui;
+  font-family: "Yeon Sung", cursive;
+  /* system-ui */
   /* 폰트 패밀리의 특성은 제일 뒤를 따르지만 같은 라인이면 먼저인걸 따른다 */
 }
 
