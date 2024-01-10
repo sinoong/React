@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap");
 
+.App {
+  padding: 20px;
+
+  font-family: "Nanum Pen Script", cursive;
+  font-family: "Yeon Sung", system-ui;
+  /* 폰트 패밀리의 특성은 제일 뒤를 따르지만 같은 라인이면 먼저인걸 따른다 */
+}
+
 /* index.html 최최상단 */
 body {
   background-color: #f6f6f6;
