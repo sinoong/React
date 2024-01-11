@@ -243,3 +243,158 @@ header button {
   font-family: "Nanum Pen Script";
   font-size: 20px;
 }
+
+.DiaryEditor .emotion_list_wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 2%;
+}
+
+.DiaryEditor textarea {
+  font-family: "Nanum Pen Script";
+  font-size: 20px;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 200px;
+  /* 박스의 크기를 상하로만 늘리고 줄이기 */
+  resize: vertical;
+
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+
+  padding: 20px;
+}
+
+.DiaryEditor .control_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* Emotion ITEM */
+
+.EmotionItem {
+  cursor: pointer;
+
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.EmotionItem img {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.EmotionItem span {
+  font-size: 18px;
+}
+
+.EmotionItem_off {
+  background-color: #ececec;
+}
+
+.EmotionItem_on_1 {
+  background-color: #64c964;
+  color: white;
+}
+.EmotionItem_on_2 {
+  background-color: #9dd722;
+  color: white;
+}
+.EmotionItem_on_3 {
+  background-color: #fdce17;
+  color: white;
+}
+.EmotionItem_on_4 {
+  background-color: #fd8446;
+  color: white;
+}
+.EmotionItem_on_5 {
+  background-color: #fd565f;
+  color: white;
+}
+
+/* Diary */
+.DiaryPage {
+}
+
+.DiaryPage section {
+  width: 100%;
+  margin-bottom: 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.DiaryPage h4 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.DiaryPage .diary_img_wrapper {
+  background-color: #ececec;
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.DiaryPage .emotion_descript {
+  font-size: 25px;
+}
+
+.DiaryPage .diary_img_wrapper_1 {
+  background-color: #64c964;
+  color: white;
+}
+.DiaryPage .diary_img_wrapper_2 {
+  background-color: #9dd772;
+  color: white;
+}
+.DiaryPage .diary_img_wrapper_3 {
+  background-color: #fdce17;
+  color: white;
+}
+.DiaryPage .diary_img_wrapper_4 {
+  background-color: #fd8446;
+  color: white;
+}
+.DiaryPage .diary_img_wrapper_5 {
+  background-color: #fd565f;
+  color: white;
+}
+
+.DiaryPage .diary_content_wrapper {
+  /* 부모 요소를 100% 가지게 해서 텍스트 창 만들기 */
+  width: 100%;
+  background-color: #ececec;
+  border-radius: 5px;
+  /* word-break: keep-all 은 길어서 줄을 바꿀 때 단어를 쪼개서 바꾸지 말라는 기능 */
+  word-break: keep-all;
+  /* overflow-wrap: break-word 은 길어서 라인을 넘어 갈 경우 넘기지 말고 줄 바꾸라는 뜻 */
+  overflow-wrap: break-word;
+}
+
+.DiaryPage .diary_content_wrapper p {
+  padding: 20px;
+  text-align: left;
+  font-size: 20px;
+  font-family: "Yeon Sung";
+  font-weight: 400;
+   /* 라인 하이트는 글자의 높이 자간  */
+  line-height: 2.5;
+}

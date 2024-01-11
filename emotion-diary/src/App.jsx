@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useReducer, useRef } from "react";
+import React, { useEffect, useReducer, useRef } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -30,50 +30,68 @@ const reducer = (state, action) => {
     default:
       return state;
   }
+
+  localStorage.setItem("diary", JSON.stringify(newState));
   return newState;
 };
 
 export const DiaryStateContext = React.createContext();
 export const DiaryDispatchContext = React.createContext();
 
-const dummyData = [
-  {
-    id: 1,
-    emotion: 1,
-    content: "오늘의일기 1번",
-    date: 1704851028581,
-  },
-  {
-    id: 2,
-    emotion: 2,
-    content: "오늘의일기 2번",
-    date: 1704851028582,
-  },
-  {
-    id: 3,
-    emotion: 3,
-    content: "오늘의일기 3번",
-    date: 1704851028583,
-  },
-  {
-    id: 4,
-    emotion: 4,
-    content: "오늘의일기 4번",
-    date: 1704851028584,
-  },
-  {
-    id: 5,
-    emotion: 5,
-    content: "오늘의일기 5번",
-    date: 1704851028585, // 가장 최신의 시간
-  },
-];
+// const dummyData = [
+//   {
+//     id: 1,
+//     emotion: 1,
+//     content: "오늘의일기 1번",
+//     date: 1704851028581,
+//   },
+//   {
+//     id: 2,
+//     emotion: 2,
+//     content: "오늘의일기 2번",
+//     date: 1704851028582,
+//   },
+//   {
+//     id: 3,
+//     emotion: 3,
+//     content: "오늘의일기 3번",
+//     date: 1704851028583,
+//   },
+//   {
+//     id: 4,
+//     emotion: 4,
+//     content: "오늘의일기 4번",
+//     date: 1704851028584,
+//   },
+//   {
+//     id: 5,
+//     emotion: 5,
+//     content: "오늘의일기 5번",
+//     date: 1704851028585, // 가장 최신의 시간
+//   },
+// ];
 
 function App() {
-  const [data, dispatch] = useReducer(reducer, dummyData);
+  const [data, dispatch] = useReducer(reducer, []);
+
+  useEffect(() => {
+    const localData = localStorage.getItem("diary");
+    if (localData) {
+      const diaryList = JSON.parse(localData).sort(
+        (a, b) => parseInt(b.id) - parseInt(a.id)
+      );
+      
+      // 게시글이 있다가 삭제해서 빈배열이 되었을 떄 보이지 않는 현상 해결
+      if (diaryList.length >= 1) {
+        dataId.current = parseInt(diaryList[0].id) + 1;
+        dispatch({ type: "INIT", data: diaryList });
+      }
+    }
+  }, []);
 
   // console.log(new Date().getTime()); 더미 데이터의 데이트값
 
+  // useRef(0) 으로 하면 키가 동일 해 지기 때문에 더미데이터의 그 다음 번호를 입력 해줘야함
   const dataId = useRef(0);
 
   // CREATE
@@ -123,7 +141,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/new" element={<New />} />
-              <Route path="/edit" element={<Edit />} />
+              <Route path="/edit/:id" element={<Edit />} />
               <Route path="/diary/:id" element={<Diary />} />
             </Routes>
           </div>
