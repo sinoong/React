@@ -1,3 +1,5 @@
+// DiaryEditor.jsx
+
 import React, {
   useCallback,
   useContext,

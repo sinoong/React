@@ -1,3 +1,4 @@
+// DiaryItem.jsx
 import React from "react";
 import MyButton from "./MyButton";
 import { useNavigate } from "react-router-dom";

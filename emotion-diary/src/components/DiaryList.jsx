@@ -1,3 +1,5 @@
+// DiaryList.jsx
+
 import React, { useEffect, useState } from "react";
 import MyButton from "./MyButton";
 import { useNavigate } from "react-router-dom";

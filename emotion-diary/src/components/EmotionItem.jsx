@@ -1,3 +1,5 @@
+// EmotionItem.jsx
+
 import React from "react";
 
 const EmotionItem = ({
